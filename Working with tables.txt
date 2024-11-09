@@ -1,0 +1,115 @@
+Working with tables:
+====================
+CREATE COMMAND:
+--------------
+create table employee
+( 
+     employee_id int,
+     employee_name varchar(20),
+     employee_salary float,
+     employee_mobile bigint(10),
+     employee_doj date
+);
+
+To view table structure.
+desc employee;
+
+to view complete tables in database.
+show tables;
+create table patient 
+   (
+     patient_id int,
+     patient_name varchar(30),
+     patient_problem varchar(50),
+     patient_contactNo bigint(10),
+     patient_gender varchar(1)
+   );
+
+To add a command line:
+AlTER COMMAND:
+-------------
+
+ALTER-ADD:
+-------
+
+alter table employee add(employee_gender char(1));
+
+alter table employee add(
+      employee_email varchar(20),
+      employee_role varchar(20)
+);
+
+ALTER-MODIFY:
+------------
+alter table employee modify employee_gender varchar(6);
+
+
+ALTER-RENAME:
+------------
+alter table employee rename column employee_id to eid;
+
+ALTER-DROP: To remove column from existing table.
+----------
+alter table employee drop column employee_role;
+
+alter table employee drop column employee_email;
+
+
+RENAME-COMMAND:
+--------------
+rename table employee to employee_details;
+rename table employee_details to employee;
+
+
+TRUNCATE COMMAND : To remove only data
+---------------
+truncate table employee;
+
+DROP COMMAND:
+------------
+drop table employee;
+
+
+DDL - DATA DEFINITION LANGUAGE
+------------------------------
+CREATE, 
+ALTER, 
+RENAME, 
+TRUNCATE, 
+DROP.
+
+DML-DATA MANIPULATION LANGUAGE(INSERT, UPDATE, DELETE)
+-----------------------
+
+create table employee
+( 
+     employee_id int,
+     employee_name varchar(20),
+     employee_salary float,
+     employee_mobile bigint(10),
+     employee_doj date
+);
+
+insert into employee values(1001,'Wills',55000,9988776655,'2024-06-20');
+insert into employee values(1001,'Smith',65000,8988776655,'2023-07-24');
+
+
+select * from employee;
+
+
+insert into employee values(1003,'Jones',Null,9988776655,Null);
+
+insert into employee(employee_id, employee_name) values(1004, 'Alice');
+
+
+***Creating duplicate table along data.
+create table emp as select * from employee;
+
+***creating duplicate table with only structure.
+   create table emp001 like emp;
+
+***Inserting existing table 
+insert into emp001 select * from employee;
+
+
+
